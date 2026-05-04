@@ -17,21 +17,25 @@ JSON format:
 }`
 
 export async function analyzePattern(problem) {
-  const apiKey = import.meta.env.VITE_GEMINI_API_KEY
-  if (!apiKey) throw new Error('API key not set. Add VITE_GEMINI_API_KEY to your .env file.')
+  const apiKey = import.meta.env.VITE_GROQ_API_KEY
+  if (!apiKey) throw new Error('API key not set. Add VITE_GROQ_API_KEY to your .env file.')
 
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-        contents: [{ parts: [{ text: `Analyze this problem:\n\n${problem}` }] }],
-        generationConfig: { temperature: 0.3, maxOutputTokens: 1000 },
-      }),
-    }
-  )
+  const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: 'llama-3.3-70b-versatile',
+      messages: [
+        { role: 'system', content: SYSTEM_PROMPT },
+        { role: 'user', content: `Analyze this problem:\n\n${problem}` },
+      ],
+      temperature: 0.3,
+      max_tokens: 1000,
+    }),
+  })
 
   if (!res.ok) {
     const err = await res.json().catch(() => ({}))
@@ -39,7 +43,7 @@ export async function analyzePattern(problem) {
   }
 
   const data = await res.json()
-  const text = data.candidates?.[0]?.content?.parts?.[0]?.text || ''
+  const text = data.choices?.[0]?.message?.content || ''
   const clean = text.replace(/```json|```/g, '').trim()
   return JSON.parse(clean)
 }

@@ -38,7 +38,7 @@ Live: [pattern-identifier.vercel.app](https://pattern-identifier.vercel.app)
 | Frontend | React 18 |
 | Build tool | Vite 5 |
 | Styling | Pure CSS with CSS variables |
-| AI | Gemini 2.0 Flash API |
+| AI | Groq API (LLaMA 3.3 70B) |
 | Deployment | Vercel |
 
 Zero external UI libraries — built from scratch.
@@ -68,10 +68,10 @@ npm run dev
 Create a `.env` file in the root folder:
 
 ```
-VITE_GEMINI_API_KEY=your_api_key_here
+VITE_GROQ_API_KEY=your_api_key_here
 ```
 
-Get a free API key at [aistudio.google.com](https://aistudio.google.com) — no credit card required.
+Get a free API key at [console.groq.com](https://console.groq.com) — no credit card required.
 
 ---
 
