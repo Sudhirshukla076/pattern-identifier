@@ -27,7 +27,7 @@ Paste any LeetCode-style problem and get:
 
 ![PatternID Demo](https://raw.githubusercontent.com/Sudhirshukla076/pattern-identifier/main/public/favicon.svg)
 
-Live: [pattern-identifier.vercel.app](https://pattern-identifier.vercel.app)
+Live: [pattern-identifier.vercel.app](https://pattern-identifier-sage.vercel.app/)
 
 ---
 
