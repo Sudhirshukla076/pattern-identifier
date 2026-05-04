@@ -1,26 +1,49 @@
 # PatternID — DSA Pattern Identifier
 
-> Instantly identify DSA patterns from any LeetCode-style problem. Built for FAANG interview prep.
+> Paste any coding problem. Instantly get the DSA pattern, approach, complexity, and similar problems to practice.
 
-![PatternID](https://img.shields.io/badge/AI-Powered-a78bfa?style=flat-square)
-![React](https://img.shields.io/badge/React-18-61dafb?style=flat-square&logo=react)
-![Vite](https://img.shields.io/badge/Vite-5-646cff?style=flat-square&logo=vite)
+![React](https://img.shields.io/badge/React-18-61dafb?style=flat-square&logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-5-646cff?style=flat-square&logo=vite&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
-## Features
+---
 
-- Paste any problem → get the DSA pattern instantly
-- Identifies primary + secondary patterns
-- Difficulty estimation (Easy / Medium / Hard)
-- Step-by-step approach
-- Time & space complexity
-- 3 similar problems to practice next
-- Key insight one-liner
+## What it does
+
+PatternID helps you stop guessing and start recognizing patterns in coding problems — a critical skill for technical interviews at top companies.
+
+Paste any LeetCode-style problem and get:
+
+- **Pattern** — primary and secondary DSA pattern (e.g. Sliding Window, BFS, DP)
+- **Difficulty** — Easy / Medium / Hard estimate
+- **Key insight** — the one thing you need to crack it
+- **Step-by-step approach** — how to think through the solution
+- **Time & space complexity** — what to aim for
+- **Similar problems** — 3 problems to practice next
+
+---
+
+## Demo
+
+![PatternID Demo](https://raw.githubusercontent.com/Sudhirshukla076/pattern-identifier/main/public/favicon.svg)
+
+Live: [pattern-identifier.vercel.app](https://pattern-identifier.vercel.app)
+
+---
 
 ## Tech Stack
 
-- **React 18** + **Vite 5**
-- **Claude AI** (claude-sonnet-4) via Anthropic API
-- Zero external UI libraries — pure CSS
+| Layer | Tech |
+|---|---|
+| Frontend | React 18 |
+| Build tool | Vite 5 |
+| Styling | Pure CSS with CSS variables |
+| AI | Gemini 2.0 Flash API |
+| Deployment | Vercel |
+
+Zero external UI libraries — built from scratch.
+
+---
 
 ## Getting Started
 
@@ -34,27 +57,53 @@ npm install
 
 # 3. Set up environment
 cp .env.example .env
-# Add your Anthropic API key to .env
+# Add your API key to .env (see below)
 
-# 4. Run
+# 4. Start dev server
 npm run dev
 ```
 
 ## Environment Variables
 
+Create a `.env` file in the root folder:
+
 ```
-VITE_ANTHROPIC_API_KEY=your_anthropic_api_key_here
+VITE_GEMINI_API_KEY=your_api_key_here
 ```
 
-Get your API key at [console.anthropic.com](https://console.anthropic.com)
+Get a free API key at [aistudio.google.com](https://aistudio.google.com) — no credit card required.
 
-## Deploy
+---
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── Header.jsx        # Top navigation bar
+│   ├── InputPanel.jsx    # Problem input + hero section
+│   ├── ResultPanel.jsx   # Analysis results display
+│   ├── PatternBadge.jsx  # Difficulty + tag badges
+│   └── Loader.jsx        # Animated loading state
+├── lib/
+│   └── analyze.js        # API integration logic
+├── App.jsx               # Root component + state management
+└── index.css             # Global styles + CSS variables
+```
+
+---
+
+## Deployment
 
 ```bash
 npm run build
-# Deploy the /dist folder to Vercel, Netlify, or GitHub Pages
+# Deploy the /dist folder to Vercel or Netlify
 ```
+
+For Vercel: add `VITE_GEMINI_API_KEY` in your project's Environment Variables settings before deploying.
+
+---
 
 ## License
 
-MIT
+MIT © [Sudhir Shukla](https://github.com/Sudhirshukla076)
