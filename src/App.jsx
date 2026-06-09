@@ -37,7 +37,18 @@ export default function App() {
             padding: '8px 20px', borderRadius: 8,
             border: '1px solid var(--border)', background: 'transparent',
             color: 'var(--text-secondary)', cursor: 'pointer', fontFamily: 'var(--sans)',
-          }}>Try again</button>
+          }}>
+          <footer
+  style={{
+    textAlign: "center",
+    padding: "20px",
+    marginTop: "40px",
+    borderTop: "1px solid #ddd",
+  }}
+>
+  Built with ❤️ by Sudhir Shukla
+</footer>
+      Try again</button>
         </div>
       )}
     </div>
