@@ -24,33 +24,56 @@ export default function App() {
 
   const reset = () => { setState('idle'); setResult(null); setErrMsg('') }
 
-  return (
-    <div style={{ minHeight: '100vh' }}>
-      <Header />
-      {state === 'idle' && <InputPanel onAnalyze={analyze} loading={false} />}
+ return (
+  <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <Header />
+
+    <div style={{ flex: 1 }}>
+      {state === 'idle' && (
+        <InputPanel onAnalyze={analyze} loading={false} />
+      )}
+
       {state === 'loading' && <Loader />}
-      {state === 'result' && <ResultPanel result={result} onReset={reset} />}
+
+      {state === 'result' && (
+        <ResultPanel result={result} onReset={reset} />
+      )}
+
       {state === 'error' && (
         <div style={{ textAlign: 'center', padding: '5rem 2rem' }}>
-          <p style={{ color: 'var(--red)', marginBottom: 16 }}>{errMsg}</p>
-          <button onClick={reset} style={{
-            padding: '8px 20px', borderRadius: 8,
-            border: '1px solid var(--border)', background: 'transparent',
-            color: 'var(--text-secondary)', cursor: 'pointer', fontFamily: 'var(--sans)',
-          }}>
-          <footer
-  style={{
-    textAlign: "center",
-    padding: "20px",
-    marginTop: "40px",
-    borderTop: "1px solid #ddd",
-  }}
->
-  Built with ❤️ by Sudhir Shukla
-</footer>
-      Try again</button>
+          <p style={{ color: 'var(--red)', marginBottom: 16 }}>
+            {errMsg}
+          </p>
+
+          <button
+            onClick={reset}
+            style={{
+              padding: '8px 20px',
+              borderRadius: 8,
+              border: '1px solid var(--border)',
+              background: 'transparent',
+              color: 'var(--text-secondary)',
+              cursor: 'pointer',
+              fontFamily: 'var(--sans)',
+            }}
+          >
+            Try Again
+          </button>
         </div>
       )}
     </div>
+
+    <footer
+      style={{
+        textAlign: 'center',
+        padding: '20px',
+        marginTop: '40px',
+        borderTop: '1px solid #ddd',
+        color: '#888',
+        fontSize: '14px',
+      }}
+    >
+      Built with ❤️ by Sudhir Shukla
+    </footer>
+  </div>
   )
-}
