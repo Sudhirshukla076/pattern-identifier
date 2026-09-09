@@ -73,6 +73,7 @@ export default function App() {
         fontSize: '14px',
       }}
       >
+       © {new Date().getFullYear()} Sudheer Shukla. All Rights Reserved.
     </footer>
   </div>
   )
