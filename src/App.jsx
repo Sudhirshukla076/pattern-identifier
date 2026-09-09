@@ -71,7 +71,8 @@ export default function App() {
         borderTop: '1px solid #ddd',
         color: '#888',
         fontSize: '14px',
-      }>>}
+      }}
+      >
     </footer>
   </div>
   )
