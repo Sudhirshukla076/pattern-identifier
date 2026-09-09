@@ -72,8 +72,6 @@ export default function App() {
         color: '#888',
         fontSize: '14px',
       }}
-    >
-      Built with ❤️ by Sudhir Shukla
     </footer>
   </div>
   )
