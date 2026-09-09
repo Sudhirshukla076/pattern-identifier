@@ -38,7 +38,7 @@ Live: [pattern-identifier.vercel.app](https://pattern-identifier-sage.vercel.app
 | Frontend | React 18 |
 | Build tool | Vite 5 |
 | Styling | Pure CSS with CSS variables |
-| AI | Groq API (LLaMA 3.3 70B) |
+| AI | Groq API (OpenAI GPT-OSS-20B) |
 | Deployment | Vercel |
 
 Zero external UI libraries — built from scratch.
